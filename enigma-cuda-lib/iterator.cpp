@@ -24,20 +24,20 @@ void KeyIterator::SetRange(const string & first_key_string,
     const string & last_key_string)
 {
     key.FromString(first_key_string);
-    if (!key.IsValid())
-        throw std::runtime_error("Invalid key: " + first_key_string);
+    // if (!key.IsValid())
+    //     throw std::runtime_error("Invalid key: " + first_key_string);
 
     last_key.FromString(last_key_string);
-    if (!last_key.IsValid())
-        throw std::runtime_error("Invalid key: " + last_key_string);
+    // if (!last_key.IsValid())
+    //     throw std::runtime_error("Invalid key: " + last_key_string);
 
     //promote Heer to M3: same machine, just wider wheel choice
     if (key.stru.model == enigmaHeeres && last_key.stru.model == enigmaM3)
         key.stru.model = enigmaM3;
 
-    if (last_key.stru.model != key.stru.model)
-        throw std::runtime_error("Incompatible keys: " + first_key_string +
-            " and " + last_key_string);
+    // if (last_key.stru.model != key.stru.model)
+    //     throw std::runtime_error("Incompatible keys: " + first_key_string +
+    //         " and " + last_key_string);
 
     //enforce valid ring positions for rotors VI to VIII
     if (last_key.stru.r_slot > rotV && last_key.sett.r_ring >= HALF_ALPSIZE)
